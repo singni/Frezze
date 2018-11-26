@@ -19,9 +19,9 @@ public class PageController {
     }
 
 
-    @RequestMapping("/customer/{page}")
-    public String showAddCust(@PathVariable String page){
+    @RequestMapping("/{router}/{page}")
+    public String showAddCust(@PathVariable String router ,@PathVariable String page){
 
-        return "customer/"+page;
+        return router+"/"+page;
     }
 }

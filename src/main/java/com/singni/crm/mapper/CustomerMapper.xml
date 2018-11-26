@@ -287,4 +287,5 @@
       website = #{website,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+
 </mapper>

@@ -235,7 +235,7 @@
                             今天风儿有点喧嚣
                         </div>
                         <div class="row center">
-                            <iframe onload="this.height=this.contentWindow.document.body.scrollHeight" width="100%"  height="500px" frameborder="0px" name="content"></iframe>
+                            <iframe  id="myiframe" width="100%"   onload="changeFrameHeight()" frameborder="0" name="content"></iframe>
                         </div><!-- /.row -->
 
                         <!-- PAGE CONTENT ENDS -->
@@ -245,7 +245,7 @@
         </div><!-- /.page-content -->
     </div><!-- /.main-content -->
 
-    <div class="footer">
+    <div class="footer" style="padding-top: 16px;">
         <div class="footer-inner">
             <!-- #section:basics/footer -->
             <div class="footer-content">
@@ -306,6 +306,16 @@
 <script src="../assets/js/ace-elements.min.js"></script>
 <script src="../assets/js/ace.min.js"></script>
 <script>
+        function changeFrameHeight(){
+            var ifm= document.getElementById("myiframe");
+            ifm.height=document.documentElement.clientHeight-220;
+
+        }
+
+        window.onresize=function(){
+            changeFrameHeight();
+
+        }
 
 </script>
 </body>

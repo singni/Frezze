@@ -67,7 +67,7 @@
 
                     <ul class="submenu">
                         <li class="">
-                            <a href="#">
+                            <a href="/linkman/add"  target="content">
                                 <i class="menu-icon fa  fa-pencil-square-o blue"></i>
                                 新增联系人
                             </a>
@@ -75,7 +75,7 @@
                             <b class="arrow"></b>
                         </li>
                         <li class="">
-                            <a href="#">
+                            <a href="/linkman/list"  target="content">
                                 <i class="menu-icon  glyphicon glyphicon-list blue"></i>
                                 联系人列表
                             </a>

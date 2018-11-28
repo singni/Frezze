@@ -249,7 +249,7 @@
         <div class="footer-inner">
             <!-- #section:basics/footer -->
             <div class="footer-content">
-						<span class="bigger-120">
+						<span class="bigger-200">
 							 Create by Rian SingNi@outlook.com &copy; 2018
 						</span>
             </div>

@@ -5,9 +5,9 @@ public class Customer {
 
     private String name;
 
-    private Integer level;
+    private String level;
 
-    private String moblie;
+    private String mobile;
 
     private String tel;
 
@@ -37,20 +37,20 @@ public class Customer {
         this.name = name == null ? null : name.trim();
     }
 
-    public Integer getLevel() {
+    public String getLevel() {
         return level;
     }
 
-    public void setLevel(Integer level) {
-        this.level = level;
+    public void setLevel(String level) {
+        this.level = level == null ? null : level.trim();
     }
 
-    public String getMoblie() {
-        return moblie;
+    public String getMobile() {
+        return mobile;
     }
 
-    public void setMoblie(String moblie) {
-        this.moblie = moblie == null ? null : moblie.trim();
+    public void setMobile(String mobile) {
+        this.mobile = mobile == null ? null : mobile.trim();
     }
 
     public String getTel() {

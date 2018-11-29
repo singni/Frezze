@@ -35,6 +35,14 @@ public class CustomerServiceImpl implements CustomerService {
         customerMapper.insert(customer);
     }
 
+    public void deleteCustomerById(String id) {
+        customerMapper.deleteByPrimaryKey(id);
+    }
+
+    public void updateCustomer(Customer customer) {
+        customerMapper.updateByPrimaryKey(customer);
+    }
+
     public PageIndex selectByList(int index, int rows){
        PageHelper.offsetPage(index,rows);
 

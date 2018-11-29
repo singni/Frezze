@@ -4,15 +4,11 @@ import com.alibaba.fastjson.JSONObject;
 import com.singni.crm.domain.Customer;
 import com.singni.crm.domain.PageIndex;
 import com.singni.crm.service.CustomerService;
-import com.singni.crm.utils.JsonUtil;
-import javafx.beans.DefaultProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.util.List;
 
 /**
  * Created by Rian on 2018/11/27.
@@ -40,5 +36,14 @@ public class CustomerController {
 
         return JSONObject.toJSONString(pageIndex);
 
+    }
+
+    @RequestMapping("/customer/delete")
+    public void deleteByCustomerById(String id){
+        customerService.deleteCustomerById(id);
+    }
+    @RequestMapping("/customer/update")
+    public void updateByCustomer(Customer customer){
+        customerService.updateCustomer(customer);
     }
 }

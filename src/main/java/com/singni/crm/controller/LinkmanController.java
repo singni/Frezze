@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.singni.crm.domain.Linkman;
 import com.singni.crm.domain.PageIndex;
 import com.singni.crm.service.LinkmanService;
-import com.singni.crm.utils.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

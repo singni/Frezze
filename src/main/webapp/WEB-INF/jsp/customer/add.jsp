@@ -40,10 +40,10 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label no-padding-right" for="moblie">移动电话： </label>
+                    <label class="col-sm-3 control-label no-padding-right" for="mobile">移动电话： </label>
 
                     <div class="col-sm-9">
-                        <input type="text" id="moblie" placeholder="输入移动电话"  name="moblie"  class=" col-xs-10 col-sm-5"/>
+                        <input type="text" id="mobile" placeholder="输入移动电话"  name="mobile"  class=" col-xs-10 col-sm-5"/>
                     </div>
                 </div>
                 <div class="form-group">

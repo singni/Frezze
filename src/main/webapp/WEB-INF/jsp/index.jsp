@@ -217,7 +217,7 @@
             <!-- /section:basics/content.searchbox -->
         </div>
 
-        <div class="page-content">
+        <div class="page-content" id="page-content">
             <!-- /section:settings.box -->
             <div class="page-content-area">
 
@@ -235,7 +235,7 @@
                             今天风儿有点喧嚣
                         </div>
                         <div class="row center">
-                            <iframe  id="myiframe" width="100%"   onload="changeFrameHeight()" frameborder="0" name="content"></iframe>
+                            <iframe  id="myiframe" width="100%"  scrolling="no"  frameborder="0" name="content"></iframe>
                         </div><!-- /.row -->
 
                         <!-- PAGE CONTENT ENDS -->
@@ -249,8 +249,8 @@
         <div class="footer-inner">
             <!-- #section:basics/footer -->
             <div class="footer-content">
-						<span class="bigger-200">
-							 Create by Rian SingNi@outlook.com &copy; 2018
+						<span class="bigger-100">
+							 Create by Rian singni@outlook.com &copy; 2018
 						</span>
             </div>
 
@@ -306,16 +306,15 @@
 <script src="../assets/js/ace-elements.min.js"></script>
 <script src="../assets/js/ace.min.js"></script>
 <script>
-        function changeFrameHeight(){
-            var ifm= document.getElementById("myiframe");
-            ifm.height=document.documentElement.clientHeight-220;
 
-        }
-
-        window.onresize=function(){
-            changeFrameHeight();
-
-        }
+        $(window).resize(function(){
+            var height=$(window).height();
+           $("#myiframe").height(height-230);
+        });
+        $(document).ready(function(){
+            var height=$(window).height();
+            $("#myiframe").height(height-230);
+        });
 
 </script>
 </body>

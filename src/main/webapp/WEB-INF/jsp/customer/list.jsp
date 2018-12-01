@@ -112,9 +112,13 @@
         })
     }
     function getHeight() {
-        return $(window).height() - $('h1').outerHeight(true) - 70;
+        return $(window).height() - $('#page-content').outerHeight(true) ;
     }
-
+    $(window).resize(function(){
+        $("#table").bootstrapTable('resetView', {
+            height: getHeight()
+        });
+    });
     $(function () {
         $("#table").bootstrapTable('resetView', {
             height: getHeight()

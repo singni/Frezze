@@ -3,7 +3,7 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>Index</title>
+
 
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/css/bootstrap-table.min.css">
@@ -11,10 +11,20 @@
     <script src="../../assets/js/bootstrap.min.js"></script>
     <script src="../../assets/js/bootstrap-table.min.js"></script>
     <script src="../../assets/js/bootstrap-table-zh-CN.js"></script>
+
 </head>
 <body>
 <div class="row" style="margin: auto">
+
     <div class="col-xs-12">
+        <div class="form-inline" style="padding: 5px;">
+            <div class="form-group">
+                <label for="serachText">请输入登陆用户名</label>
+                <input type="text" class="form-control" id="serachText" placeholder="请输入登陆用户名">
+            </div>&nbsp;&nbsp;
+            <button type="submit" class="btn btn-primary" onclick="search()">搜索</button>&nbsp;&nbsp;
+            <button type="reset" class="btn btn-primary" onclick="reset()">重置</button>
+        </div>
         <table id="table" class="table-responsive"></table>
     </div>
 </div>
@@ -32,26 +42,21 @@
             pageSize: 10,
             striped: true,
             pageList: [10, 25, 50, 100],
-            url: '/customer/findCustomerByList',
+            url: '/user/findUserByList',
             columns: [{
-                field: 'id',
-                title: 'ID',
+                field: 'userId',
+                title: 'ID'
             }, {
-                field: 'name',
-                title: '客户名称'
+                field: 'userInfoP.name',
+                title: '用户名'
             }, {
-                field: 'level',
-                title: '客户级别'
+                field: 'userName',
+                title: '登陆用户名'
             }, {
-                field: 'tel',
-                title: '固定电话'
-            }, {
-                field: 'mobile',
-                title: '移动电话'
-            }, {
-                field: 'address',
-                title: '联系地址'
-            }, {
+                field: 'state',
+                title: '状态'
+            },
+                {
                 field: 'operation',
                 title: '操作',
                 align: 'center',
@@ -59,62 +64,35 @@
                 formatter: operateFormatter,
             }
             ],
-            onClickCell: function (field, value, row, $element) {
-                $element.attr('contenteditable', true);
-                $element.blur(function () {
-                    var index = $element.parent().data('index');
-                    var tdValue = $element.html();
-                    saveData(index, field, tdValue);
-                })
+            queryParams: function (params) {
+                var temp = {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
+                    // limit: params.limit,   //页面大小
+                    pageSize: this.pageSize,
+                    pageNumber: this.pageNumber,
+                    userName:$('#serachText').val()
+
+                };
+                return temp;
+
             }
 
         },
         window.operateEvents = {
             'click .talbeDelete': function (event, value, row, index) {
-                var id = row.id
-                $.post("/customer/delete", {id: id})
+                var id = row.userId;
+                $.get("/user/deleteByUserId/"+id)
 
                 $("#table").bootstrapTable('refresh');
             },
             'click .talbeEditor': function (event, value, row, index) {
-                var id = row.id;
-                var name = row.name;
-                var level = row.level;
-                var mobile = row.mobile;
-                var tel = row.tel;
-                var address = row.address;
-                var zip = row.zip;
-                var fax = row.fax;
-                var source = row.source;
-                var website = row.website;
-                $.post("/customer/update", {
-                    id: id,
-                    name: name,
-                    level: level,
-                    mobile: mobile,
-                    tel:tel,
-                    address:address,
-                    zip:zip,
-                    fax:fax,
-                    source:source,
-                    website:website
-                });
-
-                $("#table").bootstrapTable('refresh');
+                window.location.href='/user/edit?id='+row.userId;
             }
         }
     );
-    function saveData(index, field, tdValue) {
-        $("#table").bootstrapTable('updateCell', {
-            index: index,       //行索引
-            field: field,       //列名
-            value: tdValue        //cell值
-        })
-    }
     function getHeight() {
-        return $(window).height() - $('#page-content').outerHeight(true) ;
+        return $(window).height() - $('#page-content').outerHeight(true) - 35;
     }
-    $(window).resize(function(){
+    $(window).resize(function () {
         $("#table").bootstrapTable('resetView', {
             height: getHeight()
         });
@@ -132,7 +110,13 @@
         ].join("")
     };
 
-
+    function search() {
+        $("#table").bootstrapTable('refresh');
+    };
+   function reset(){
+       $('#serachText').val('');
+        $("#table").bootstrapTable('refresh');
+   }
 
 </script>
 </body>

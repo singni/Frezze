@@ -30,7 +30,7 @@
     <!-- 切面 -->
     <aop:config>
         <aop:advisor advice-ref="txAdvice"
-                     pointcut="execution(* com.singni.crm.service.*.*(..))" />
+                     pointcut="execution(* com.frezze.service.*.*(..))" />
     </aop:config>
 
 </beans>

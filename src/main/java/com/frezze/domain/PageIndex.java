@@ -1,4 +1,4 @@
-package com.singni.crm.domain;
+package com.frezze.domain;
 
 import java.util.List;
 

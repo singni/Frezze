@@ -19,7 +19,7 @@
         <li class="">
             <a href="#" class="dropdown-toggle">
                 <i class="menu-icon glyphicon glyphicon-user blue"></i>
-                <span class="menu-text">  客户 &amp; 联系人 </span>
+                <span class="menu-text"> 系统管理 </span>
 
                 <b class="arrow fa fa-angle-down"></b>
             </a>
@@ -31,7 +31,7 @@
                 <li class="">
                     <a href="#" class="dropdown-toggle">
                         <i class="menu-icon fa fa-caret-right"></i>
-                        客户管理
+                        部门管理
                         <b class="arrow fa fa-angle-down"></b>
                     </a>
 
@@ -39,17 +39,17 @@
 
                     <ul class="submenu">
                         <li class="">
-                            <a href="/customer/add" target="content">
-                                <i class="menu-icon fa  fa-pencil-square-o blue"></i>
-                                新增客户
+                            <a href="/dept/list" target="content">
+                                <i class="menu-icon  glyphicon glyphicon-list blue"></i>
+                                部门列表
                             </a>
 
                             <b class="arrow"></b>
                         </li>
                         <li class="">
-                            <a href="/customer/list" target="content">
-                                <i class="menu-icon  glyphicon glyphicon-list blue"></i>
-                                客户列表
+                            <a href="/dept/add"  target="content">
+                                <i class="menu-icon fa  fa-pencil-square-o blue"></i>
+                                部门新增
                             </a>
 
                             <b class="arrow"></b>
@@ -59,7 +59,7 @@
                 <li class="">
                     <a href="#" class="dropdown-toggle">
                         <i class="menu-icon fa fa-caret-right"></i>
-                        联系人管理
+                        用户管理
                         <b class="arrow fa fa-angle-down"></b>
                     </a>
 
@@ -67,17 +67,17 @@
 
                     <ul class="submenu">
                         <li class="">
-                            <a href="/linkman/add"  target="content">
+                            <a href="/user/add"  target="content">
                                 <i class="menu-icon fa  fa-pencil-square-o blue"></i>
-                                新增联系人
+                                新增用户
                             </a>
 
                             <b class="arrow"></b>
                         </li>
                         <li class="">
-                            <a href="/linkman/list"  target="content">
+                            <a href="/user/list"  target="content">
                                 <i class="menu-icon  glyphicon glyphicon-list blue"></i>
-                                联系人列表
+                                用户列表
                             </a>
 
                             <b class="arrow"></b>
@@ -95,7 +95,7 @@
 
                     <ul class="submenu">
                         <li class="">
-                            <a href="#">
+                            <a href="#" >
                                 <i class="menu-icon fa  fa-pencil-square-o blue"></i>
                                 新增客户拜访
                             </a>
@@ -103,7 +103,7 @@
                             <b class="arrow"></b>
                         </li>
                         <li class="">
-                            <a href="#">
+                            <a href="#" >
                                 <i class="menu-icon  glyphicon glyphicon-list blue"></i>
                                 客户拜访列表
                             </a>

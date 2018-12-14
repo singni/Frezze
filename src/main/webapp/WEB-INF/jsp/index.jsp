@@ -198,7 +198,7 @@
             <ul class="breadcrumb">
                 <li>
                     <i class="ace-icon fa fa-home home-icon"></i>
-                    <a href="index.html">首页</a>
+                    <a href="index.html" id="breadcrumbLink">首页</a>
                 </li>
 
             </ul><!-- /.breadcrumb -->

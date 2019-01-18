@@ -45,10 +45,10 @@
             url: '/user/findUserByList',
             columns: [{
                 field: 'userId',
-                title: 'ID'
+                title: 'ID',
             }, {
                 field: 'userInfoP.name',
-                title: '用户名'
+                title: '姓名'
             }, {
                 field: 'userName',
                 title: '登陆用户名'
@@ -86,11 +86,23 @@
             },
             'click .talbeEditor': function (event, value, row, index) {
                 window.location.href='/user/edit?id='+row.userId;
-            }
+            },
+            'click .talbeRole': function (event, value, row, index) {
+                window.location.href='/user/rolelist?id='+row.userId;
+            },
+
         }
     );
+    function operateFormatter(value, row, index) {
+        return [
+            '<button id="talbeEditor" type="button" class="talbeRole btn bg-primary">角色</button>&nbsp;&nbsp;',
+            '<button id="talbeEditor" type="button" class="talbeEditor btn bg-primary">更新</button>&nbsp;&nbsp;',
+            '<button id="talbeDelete" type="button" class="talbeDelete btn btn-default">删除</button>'
+        ].join("")
+    };
+
     function getHeight() {
-        return $(window).height() - $('#page-content').outerHeight(true) - 35;
+        return $(window).height() - $('#page-content').outerHeight(true) - 45;
     }
     $(window).resize(function () {
         $("#table").bootstrapTable('resetView', {
@@ -103,12 +115,7 @@
         });
     });
 
-    function operateFormatter(value, row, index) {
-        return [
-            '<button id="talbeEditor" type="button" class="talbeEditor btn bg-primary">更新</button>&nbsp;&nbsp;',
-            '<button id="talbeDelete" type="button" class="talbeDelete btn btn-default">删除</button>'
-        ].join("")
-    };
+
 
     function search() {
         $("#table").bootstrapTable('refresh');

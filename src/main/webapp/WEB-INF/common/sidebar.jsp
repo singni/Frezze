@@ -47,7 +47,7 @@
                             <b class="arrow"></b>
                         </li>
                         <li class="">
-                            <a href="/dept/add"  target="content">
+                            <a href="/dept/add" target="content">
                                 <i class="menu-icon fa  fa-pencil-square-o blue"></i>
                                 部门新增
                             </a>
@@ -67,7 +67,7 @@
 
                     <ul class="submenu">
                         <li class="">
-                            <a href="/user/add"  target="content">
+                            <a href="/user/add" target="content">
                                 <i class="menu-icon fa  fa-pencil-square-o blue"></i>
                                 新增用户
                             </a>
@@ -75,7 +75,7 @@
                             <b class="arrow"></b>
                         </li>
                         <li class="">
-                            <a href="/user/list"  target="content">
+                            <a href="/user/list" target="content">
                                 <i class="menu-icon  glyphicon glyphicon-list blue"></i>
                                 用户列表
                             </a>
@@ -87,7 +87,7 @@
                 <li class="">
                     <a href="#" class="dropdown-toggle">
                         <i class="menu-icon fa fa-caret-right"></i>
-                        客户拜访管理
+                        角色管理
                         <b class="arrow fa fa-angle-down"></b>
                     </a>
 
@@ -95,17 +95,17 @@
 
                     <ul class="submenu">
                         <li class="">
-                            <a href="#" >
+                            <a href="/role/add" target="content">
                                 <i class="menu-icon fa  fa-pencil-square-o blue"></i>
-                                新增客户拜访
+                                新增角色
                             </a>
 
                             <b class="arrow"></b>
                         </li>
                         <li class="">
-                            <a href="#" >
+                            <a href="/role/list" target="content">
                                 <i class="menu-icon  glyphicon glyphicon-list blue"></i>
-                                客户拜访列表
+                                角色列表
                             </a>
 
                             <b class="arrow"></b>
@@ -115,7 +115,7 @@
                 <li class="">
                     <a href="#" class="dropdown-toggle">
                         <i class="menu-icon fa fa-caret-right"></i>
-                        综合查询
+                        模块管理
                         <b class="arrow fa fa-angle-down"></b>
                     </a>
 
@@ -123,66 +123,30 @@
 
                     <ul class="submenu">
                         <li class="">
-                            <a href="#">
-                                <i class="menu-icon  glyphicon glyphicon-list blue"></i>
-                                客户信息查询
+                            <a href="/module/add" target="content">
+                                <i class="menu-icon fa  fa-pencil-square-o blue"></i>
+                                模块新增
                             </a>
 
                             <b class="arrow"></b>
                         </li>
-                        <li class="">
-                            <a href="#">
+                        <li class="" target="content">
+                            <a href="/module/list" target="content">
                                 <i class="menu-icon  glyphicon glyphicon-list blue"></i>
-                                联系人信息查询
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-                        <li class="">
-                            <a href="#">
-                                <i class="menu-icon  glyphicon glyphicon-list blue"></i>
-                                客户拜访记录查询
+                                模块列表
                             </a>
 
                             <b class="arrow"></b>
                         </li>
                     </ul>
-                <li class="">
-                    <a href="#" class="dropdown-toggle">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        统计分析
-                        <b class="arrow fa fa-angle-down"></b>
-                    </a>
-
-                    <b class="arrow"></b>
-
-                    <ul class="submenu">
-                        <li class="">
-                            <a href="#">
-                                <i class="menu-icon  fa fa-bar-chart-o blue"></i>
-                                客户行业统计
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-                        <li class="">
-                            <a href="#">
-                                <i class="menu-icon  fa fa-bar-chart-o blue"></i>
-                                客户来源统计
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-                    </ul>
-                </li>
                 </li>
             </ul>
         </li>
 
         <li class="">
-            <a href="#" class="dropdown-toggle">
+            <a href="" class="dropdown-toggle">
                 <i class="menu-icon fa fa-list"></i>
-                <span class="menu-text"> 表格 </span>
+                <span class="menu-text"> 货运管理 </span>
 
                 <b class="arrow fa fa-angle-down"></b>
             </a>
@@ -191,73 +155,76 @@
 
             <ul class="submenu">
                 <li class="">
-                    <a href="tables.html">
+                    <a href="#" class="dropdown-toggle">
                         <i class="menu-icon fa fa-caret-right"></i>
-                        简单通用表格
+                        购销合同
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
+
+                    <b class="arrow"></b>
+
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="/cantrace/add" target="content">
+                                <i class="menu-icon fa  fa-pencil-square-o blue"></i>
+                                购销合同新增
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                        <li class="">
+                            <a href="/cantrace/list" target="content">
+                                <i class="menu-icon  glyphicon glyphicon-list blue"></i>
+                                购销合同列表
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="/cantrace/outProduct" target="content">
+                        <i class="menu-icon  glyphicon glyphicon-list blue"></i>
+                        出货表
                     </a>
 
                     <b class="arrow"></b>
                 </li>
-
                 <li class="">
-                    <a href="jqgrid.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        jqGrid插件表格
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-pencil-square-o"></i>
+                        <span class="menu-text">出口报运</span>
+
+                        <b class="arrow fa fa-angle-down"></b>
                     </a>
 
                     <b class="arrow"></b>
+
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="/extprot/exportlist"  target="content">
+                                <i class="menu-icon  glyphicon glyphicon-list blue"></i>
+                                待出口报运列表
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="/extprot/list"  target="content">
+                                <i class="menu-icon  glyphicon glyphicon-list blue"></i>
+                                出口报运列表
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </li>
 
-        <li class="">
-            <a href="#" class="dropdown-toggle">
-                <i class="menu-icon fa fa-pencil-square-o"></i>
-                <span class="menu-text"> 表单 </span>
 
-                <b class="arrow fa fa-angle-down"></b>
-            </a>
-
-            <b class="arrow"></b>
-
-            <ul class="submenu">
-                <li class="">
-                    <a href="form-elements.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        表单组件
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="form-wizard.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        向导提示 &amp; 验证
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="wysiwyg.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        编辑器
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="dropzone.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        文件上传
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-            </ul>
-        </li>
 
         <li class="">
             <a href="widgets.html">

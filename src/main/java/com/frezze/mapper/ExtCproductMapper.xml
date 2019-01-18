@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.frezze.mapper.ExtCproductMapper" >
+  <resultMap id="BaseResultMap" type="com.frezze.domain.ExtCproduct" >
+    <id column="EXT_CPRODUCT_ID" property="extCproductId" jdbcType="VARCHAR" />
+    <result column="CONTRACT_PRODUCT_ID" property="contractProductId" jdbcType="VARCHAR" />
+    <result column="FACTORY_ID" property="factoryId" jdbcType="VARCHAR" />
+    <result column="FACTORY_NAME" property="factoryName" jdbcType="VARCHAR" />
+    <result column="PRODUCT_NO" property="productNo" jdbcType="VARCHAR" />
+    <result column="PRODUCT_IMAGE" property="productImage" jdbcType="VARCHAR" />
+    <result column="PRODUCT_DESC" property="productDesc" jdbcType="VARCHAR" />
+    <result column="PACKING_UNIT" property="packingUnit" jdbcType="VARCHAR" />
+    <result column="CNUMBER" property="cnumber" jdbcType="INTEGER" />
+    <result column="PRICE" property="price" jdbcType="DECIMAL" />
+    <result column="AMOUNT" property="amount" jdbcType="DECIMAL" />
+    <result column="PRODUCT_REQUEST" property="productRequest" jdbcType="VARCHAR" />
+    <result column="ORDER_NO" property="orderNo" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    EXT_CPRODUCT_ID, CONTRACT_PRODUCT_ID, FACTORY_ID, FACTORY_NAME, PRODUCT_NO, PRODUCT_IMAGE, 
+    PRODUCT_DESC, PACKING_UNIT, CNUMBER, PRICE, AMOUNT, PRODUCT_REQUEST, ORDER_NO
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.frezze.domain.ExtCproductExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ext_cproduct_c
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ext_cproduct_c
+    where EXT_CPRODUCT_ID = #{extCproductId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ext_cproduct_c
+    where EXT_CPRODUCT_ID = #{extCproductId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.frezze.domain.ExtCproductExample" >
+    delete from ext_cproduct_c
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.frezze.domain.ExtCproduct" >
+    insert into ext_cproduct_c (EXT_CPRODUCT_ID, CONTRACT_PRODUCT_ID, 
+      FACTORY_ID, FACTORY_NAME, PRODUCT_NO, 
+      PRODUCT_IMAGE, PRODUCT_DESC, PACKING_UNIT, 
+      CNUMBER, PRICE, AMOUNT, 
+      PRODUCT_REQUEST, ORDER_NO)
+    values (#{extCproductId,jdbcType=VARCHAR}, #{contractProductId,jdbcType=VARCHAR}, 
+      #{factoryId,jdbcType=VARCHAR}, #{factoryName,jdbcType=VARCHAR}, #{productNo,jdbcType=VARCHAR}, 
+      #{productImage,jdbcType=VARCHAR}, #{productDesc,jdbcType=VARCHAR}, #{packingUnit,jdbcType=VARCHAR}, 
+      #{cnumber,jdbcType=INTEGER}, #{price,jdbcType=DECIMAL}, #{amount,jdbcType=DECIMAL}, 
+      #{productRequest,jdbcType=VARCHAR}, #{orderNo,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.frezze.domain.ExtCproduct" >
+    insert into ext_cproduct_c
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="extCproductId != null" >
+        EXT_CPRODUCT_ID,
+      </if>
+      <if test="contractProductId != null" >
+        CONTRACT_PRODUCT_ID,
+      </if>
+      <if test="factoryId != null" >
+        FACTORY_ID,
+      </if>
+      <if test="factoryName != null" >
+        FACTORY_NAME,
+      </if>
+      <if test="productNo != null" >
+        PRODUCT_NO,
+      </if>
+      <if test="productImage != null" >
+        PRODUCT_IMAGE,
+      </if>
+      <if test="productDesc != null" >
+        PRODUCT_DESC,
+      </if>
+      <if test="packingUnit != null" >
+        PACKING_UNIT,
+      </if>
+      <if test="cnumber != null" >
+        CNUMBER,
+      </if>
+      <if test="price != null" >
+        PRICE,
+      </if>
+      <if test="amount != null" >
+        AMOUNT,
+      </if>
+      <if test="productRequest != null" >
+        PRODUCT_REQUEST,
+      </if>
+      <if test="orderNo != null" >
+        ORDER_NO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="extCproductId != null" >
+        #{extCproductId,jdbcType=VARCHAR},
+      </if>
+      <if test="contractProductId != null" >
+        #{contractProductId,jdbcType=VARCHAR},
+      </if>
+      <if test="factoryId != null" >
+        #{factoryId,jdbcType=VARCHAR},
+      </if>
+      <if test="factoryName != null" >
+        #{factoryName,jdbcType=VARCHAR},
+      </if>
+      <if test="productNo != null" >
+        #{productNo,jdbcType=VARCHAR},
+      </if>
+      <if test="productImage != null" >
+        #{productImage,jdbcType=VARCHAR},
+      </if>
+      <if test="productDesc != null" >
+        #{productDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="packingUnit != null" >
+        #{packingUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="cnumber != null" >
+        #{cnumber,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="amount != null" >
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="productRequest != null" >
+        #{productRequest,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null" >
+        #{orderNo,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.frezze.domain.ExtCproductExample" resultType="java.lang.Integer" >
+    select count(*) from ext_cproduct_c
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update ext_cproduct_c
+    <set >
+      <if test="record.extCproductId != null" >
+        EXT_CPRODUCT_ID = #{record.extCproductId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contractProductId != null" >
+        CONTRACT_PRODUCT_ID = #{record.contractProductId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.factoryId != null" >
+        FACTORY_ID = #{record.factoryId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.factoryName != null" >
+        FACTORY_NAME = #{record.factoryName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productNo != null" >
+        PRODUCT_NO = #{record.productNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productImage != null" >
+        PRODUCT_IMAGE = #{record.productImage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productDesc != null" >
+        PRODUCT_DESC = #{record.productDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.packingUnit != null" >
+        PACKING_UNIT = #{record.packingUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cnumber != null" >
+        CNUMBER = #{record.cnumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.price != null" >
+        PRICE = #{record.price,jdbcType=DECIMAL},
+      </if>
+      <if test="record.amount != null" >
+        AMOUNT = #{record.amount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.productRequest != null" >
+        PRODUCT_REQUEST = #{record.productRequest,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderNo != null" >
+        ORDER_NO = #{record.orderNo,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update ext_cproduct_c
+    set EXT_CPRODUCT_ID = #{record.extCproductId,jdbcType=VARCHAR},
+      CONTRACT_PRODUCT_ID = #{record.contractProductId,jdbcType=VARCHAR},
+      FACTORY_ID = #{record.factoryId,jdbcType=VARCHAR},
+      FACTORY_NAME = #{record.factoryName,jdbcType=VARCHAR},
+      PRODUCT_NO = #{record.productNo,jdbcType=VARCHAR},
+      PRODUCT_IMAGE = #{record.productImage,jdbcType=VARCHAR},
+      PRODUCT_DESC = #{record.productDesc,jdbcType=VARCHAR},
+      PACKING_UNIT = #{record.packingUnit,jdbcType=VARCHAR},
+      CNUMBER = #{record.cnumber,jdbcType=INTEGER},
+      PRICE = #{record.price,jdbcType=DECIMAL},
+      AMOUNT = #{record.amount,jdbcType=DECIMAL},
+      PRODUCT_REQUEST = #{record.productRequest,jdbcType=VARCHAR},
+      ORDER_NO = #{record.orderNo,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.frezze.domain.ExtCproduct" >
+    update ext_cproduct_c
+    <set >
+      <if test="contractProductId != null" >
+        CONTRACT_PRODUCT_ID = #{contractProductId,jdbcType=VARCHAR},
+      </if>
+      <if test="factoryId != null" >
+        FACTORY_ID = #{factoryId,jdbcType=VARCHAR},
+      </if>
+      <if test="factoryName != null" >
+        FACTORY_NAME = #{factoryName,jdbcType=VARCHAR},
+      </if>
+      <if test="productNo != null" >
+        PRODUCT_NO = #{productNo,jdbcType=VARCHAR},
+      </if>
+      <if test="productImage != null" >
+        PRODUCT_IMAGE = #{productImage,jdbcType=VARCHAR},
+      </if>
+      <if test="productDesc != null" >
+        PRODUCT_DESC = #{productDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="packingUnit != null" >
+        PACKING_UNIT = #{packingUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="cnumber != null" >
+        CNUMBER = #{cnumber,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        PRICE = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="amount != null" >
+        AMOUNT = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="productRequest != null" >
+        PRODUCT_REQUEST = #{productRequest,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null" >
+        ORDER_NO = #{orderNo,jdbcType=INTEGER},
+      </if>
+    </set>
+    where EXT_CPRODUCT_ID = #{extCproductId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.frezze.domain.ExtCproduct" >
+    update ext_cproduct_c
+    set CONTRACT_PRODUCT_ID = #{contractProductId,jdbcType=VARCHAR},
+      FACTORY_ID = #{factoryId,jdbcType=VARCHAR},
+      FACTORY_NAME = #{factoryName,jdbcType=VARCHAR},
+      PRODUCT_NO = #{productNo,jdbcType=VARCHAR},
+      PRODUCT_IMAGE = #{productImage,jdbcType=VARCHAR},
+      PRODUCT_DESC = #{productDesc,jdbcType=VARCHAR},
+      PACKING_UNIT = #{packingUnit,jdbcType=VARCHAR},
+      CNUMBER = #{cnumber,jdbcType=INTEGER},
+      PRICE = #{price,jdbcType=DECIMAL},
+      AMOUNT = #{amount,jdbcType=DECIMAL},
+      PRODUCT_REQUEST = #{productRequest,jdbcType=VARCHAR},
+      ORDER_NO = #{orderNo,jdbcType=INTEGER}
+    where EXT_CPRODUCT_ID = #{extCproductId,jdbcType=VARCHAR}
+  </update>
+</mapper>

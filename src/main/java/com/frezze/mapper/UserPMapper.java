@@ -28,4 +28,10 @@ public interface UserPMapper {
     int updateByPrimaryKeySelective(UserP record);
 
     int updateByPrimaryKey(UserP record);
+
+    UserP findUserByRoles(String id);
+
+    void addUserByRole(@Param("userId")String userId,@Param("roleId") String roleId);
+
+    void deleteUserByRole(@Param("userId")String userId);
 }

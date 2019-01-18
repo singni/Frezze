@@ -1,6 +1,11 @@
 package com.frezze.domain;
 
+
+
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class Role {
     private String roleId;
@@ -20,6 +25,15 @@ public class Role {
     private String updateBy;
 
     private Date updateTime;
+    private Set<Module> moduleList=new HashSet<Module>();
+
+    public Set<Module> getModuleList() {
+        return moduleList;
+    }
+
+    public void setModuleList(Set<Module> moduleList) {
+        this.moduleList = moduleList;
+    }
 
     public String getRoleId() {
         return roleId;

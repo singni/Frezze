@@ -1,5 +1,6 @@
 package com.frezze.mapper;
 
+import com.frezze.domain.Module;
 import com.frezze.domain.Role;
 import com.frezze.domain.RoleExample;
 import org.apache.ibatis.annotations.Param;
@@ -28,4 +29,10 @@ public interface RoleMapper {
     int updateByPrimaryKeySelective(Role record);
 
     int updateByPrimaryKey(Role record);
+
+    int selectMaxOrderNo();
+
+    void deletePurview(String roleId);
+    void insertPurview(@Param("roleId")String roleId,@Param("moduleId")String moduleId);
+
 }

@@ -1,6 +1,9 @@
 package com.frezze.domain;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class UserP {
     private String userId;
@@ -22,6 +25,26 @@ public class UserP {
     private String updateBy;
 
     private Date updateTime;
+
+    private  UserInfoP userInfoP;
+
+    private Set<Role> roles=new HashSet<Role>();
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+    public UserInfoP getUserInfoP() {
+        return userInfoP;
+    }
+
+    public void setUserInfoP(UserInfoP userInfoP) {
+        this.userInfoP = userInfoP;
+    }
 
     public String getUserId() {
         return userId;

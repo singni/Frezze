@@ -1,5 +1,7 @@
 package com.frezze.domain;
 
+
+
 public class DeptP {
     private String deptId;
 
@@ -8,6 +10,16 @@ public class DeptP {
     private String parentId;
 
     private Integer state;
+
+    private DeptP parent;
+
+    public DeptP getParent() {
+        return parent;
+    }
+
+    public void setParent(DeptP parent) {
+        this.parent = parent;
+    }
 
     public String getDeptId() {
         return deptId;

@@ -235,7 +235,7 @@
                             今天风儿有点喧嚣
                         </div>
                         <div class="row center">
-                            <iframe  id="myiframe" width="100%"  scrolling="no"  frameborder="0" name="content"></iframe>
+                            <iframe  id="myiframe" width="100%"    frameborder="0" name="content"></iframe>
                         </div><!-- /.row -->
 
                         <!-- PAGE CONTENT ENDS -->

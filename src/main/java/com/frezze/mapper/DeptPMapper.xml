@@ -193,4 +193,27 @@
       STATE = #{state,jdbcType=INTEGER}
     where DEPT_ID = #{deptId,jdbcType=VARCHAR}
   </update>
+
+    <select id="selectDeptParent" parameterType="java.lang.String" resultMap="DeptAll">
+        SELECT
+        <include refid="Base_Column_List" />
+        where PARENT_ID = #{deptId,jdbcType=VARCHAR}
+    </select>
+
+    <resultMap id="DeptAll" type="com.frezze.domain.DeptP">
+        <id column="DEPT_ID" property="deptId" jdbcType="VARCHAR" />
+        <result column="DEPT_NAME" property="deptName" jdbcType="VARCHAR" />
+        <result column="PARENT_ID" property="parentId" jdbcType="VARCHAR" />
+        <result column="STATE" property="state" jdbcType="INTEGER" />
+        <collection property="parent" ofType="DeptAll" select="selectDeptParent" column="PARENT_ID">
+        </collection>
+    </resultMap>
+
+    <select id="selectDeptById" resultMap="DeptAll" parameterType="java.lang.String">
+        SELECT
+        <include refid="Base_Column_List" />
+        where DEPT_ID = #{deptId,jdbcType=VARCHAR}
+    </select>
+
+
 </mapper>

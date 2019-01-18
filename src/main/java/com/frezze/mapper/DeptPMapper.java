@@ -28,4 +28,6 @@ public interface DeptPMapper {
     int updateByPrimaryKeySelective(DeptP record);
 
     int updateByPrimaryKey(DeptP record);
+
+    DeptP selectDeptById(String id);
 }
